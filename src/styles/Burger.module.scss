@@ -1,0 +1,38 @@
+.burger {
+  @apply w-10 h-6 relative;
+
+  &:hover {
+    .secondLine,
+    .thirdLine {
+      @apply w-full;
+    }
+  }
+
+  &.active {
+    .firstLine {
+      @apply rotate-[225deg] translate-y-3;
+    }
+    .thirdLine {
+      @apply -rotate-45 -translate-y-3 w-full;
+    }
+    .secondLine {
+      @apply translate-x-full opacity-0;
+    }
+  }
+
+  .firstLine,
+  .secondLine,
+  .thirdLine {
+    @apply h-1 rounded-lg w-full absolute right-0;
+    transition: all 0.3s ease-in;
+  }
+  .firstLine {
+    @apply top-0;
+  }
+  .secondLine {
+    @apply top-1/2 w-4/6;
+  }
+  .thirdLine {
+    @apply top-full w-1/4;
+  }
+}

@@ -1,78 +1,53 @@
-import React, { FC, memo, useEffect, useState } from 'react';
-import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
-
-import { IColor, routes } from '../types';
-import { classNames, sectionColors } from '../constants';
-import { Flex } from '@/UI';
+import React, { FC, memo, useState } from 'react';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
+
+import { routes } from '../types';
+import { Burger, Flex } from '@/UI';
+import s from '@/styles/Header.module.scss';
 import { useRouter } from 'next/router';
 
 const links = [
-  { to: routes.home, text: 'Home' },
-  { to: routes.profile, text: 'Profile' },
+  { to: routes.portfolio, text: 'My works' },
+  { to: routes.contacts, text: 'Contacts' },
+  { to: routes.about, text: 'About me' },
 ];
 
-const editableRoutes = [routes.home];
-
 const Header: FC = () => {
-  const [activeColor, setActiveColor] = useState<IColor>(sectionColors.default);
-  const [allSection, setAllSection] = useState<NodeListOf<HTMLElement> | null>(
-    null
-  );
-  const [isEditable, setIsEditable] = useState(true);
-  const { scrollY } = useScroll();
   const router = useRouter();
-
-  useEffect(() => {
-    setIsEditable(editableRoutes.some((el) => el === router.pathname));
-  }, [router.pathname]);
-
-  useEffect(() => {
-    setAllSection(
-      document.body.querySelectorAll('section.' + classNames.section)
-    );
-  }, []);
-
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    if (!allSection) return;
-    if (!isEditable) {
-      setActiveColor(sectionColors.default);
-      return;
-    }
-
-    const res: IColor[] = [];
-
-    allSection?.forEach((sec) => {
-      if (sec.getBoundingClientRect().y < 71) {
-        res.push({
-          bg: sec.getAttribute('data-bg') || '',
-          text: sec.getAttribute('data-color') || '',
-        });
-      }
-    });
-
-    setActiveColor(res.pop() || sectionColors.default);
-  });
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <motion.div className='Header'>
-      <header
-        style={{
-          backgroundColor: activeColor.bg,
-          color: activeColor.text,
-        }}
-      >
-        <Flex className='gap-5 py-5 w-full justify-between container'>
-          <Flex>LOGO</Flex>
-          <Flex className='gap-3'>
+    <motion.div className={[s.headerWrapper, isOpen ? s.active : ''].join(' ')}>
+      <header className={s.header}>
+        <Flex className={s.header__body + ' container'}>
+          <Flex>
+            <Link className={s.link} href={routes.home}>
+              Maksim Attsetski
+            </Link>
+          </Flex>
+          <Flex className={s.links}>
             {links.map(({ text, to }) => (
-              <Link href={to} key={to}>
+              <Link
+                className={[
+                  s.link,
+                  router.pathname === to ? s.active : '',
+                ].join(' ')}
+                href={to}
+                key={to}
+              >
                 {text}
+                <span />
               </Link>
             ))}
           </Flex>
         </Flex>
       </header>
+      <Burger
+        onClick={() => setIsOpen((prev) => !prev)}
+        className={s.headerWrapper__burger}
+        isOpen={isOpen}
+      />
     </motion.div>
   );
 };

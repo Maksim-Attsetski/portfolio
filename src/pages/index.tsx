@@ -1,30 +1,17 @@
 import React, { FC, memo } from 'react';
-import { Flex, Section } from '@/UI';
-import { Star3d, TextWithBorder } from '@/shared';
-import { Canvas } from '@react-three/fiber';
+
+import { HomeGreeting, Layout, MyStack } from '@/shared';
 
 const Home: FC = () => {
   return (
-    <div>
-      <Section headerStyles={{ bg: '#545ffe', text: '#fff' }}>
-        <div className='min-h-screen'>
-          <br />
-          <br />
-          <br />
-          <Flex className='justify-center flex-col'>
-            <TextWithBorder text='Hello world 1' />
-            <TextWithBorder text='Hello world 2' />
-            <TextWithBorder text='Hello world 3' />
-          </Flex>
-        </div>
-      </Section>
-      <Section headerStyles={{ bg: '#d26060', text: '#fff' }}>
-        <div className='min-h-screen'>ddddd</div>
-      </Section>
-      <Section headerStyles={{ bg: '#60d26a', text: '#fff' }}>
-        <div className='min-h-screen'>Hello</div>
-      </Section>
-    </div>
+    <Layout>
+      <section className='container'>
+        <HomeGreeting />
+        <MyStack />
+        <br />
+        <br />
+      </section>
+    </Layout>
   );
 };
 

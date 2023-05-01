@@ -1,9 +1,6 @@
-export interface IColor {
-  text: string;
-  bg: string;
-}
-
 export enum routes {
   home = '/',
-  profile = '/profile',
+  portfolio = '/portfolio',
+  contacts = '/contacts',
+  about = '/about',
 }

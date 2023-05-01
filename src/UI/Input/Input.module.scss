@@ -1,0 +1,40 @@
+$borderSize: 1.5px;
+$borderRadius: 12px;
+$borderColor: #fff;
+
+.container {
+  position: relative;
+  width: 300px;
+  .input {
+    width: 100%;
+    outline: none;
+    border: $borderSize solid #333;
+    border-right: 0px solid #333;
+    border-radius: $borderRadius 0px 0px $borderRadius;
+    padding: 7px 10px;
+    &:focus {
+      border-color: $borderColor;
+    }
+  }
+
+
+  .number {
+    color: #ccc;
+    background-color: $borderColor;
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    border-top-right-radius: $borderRadius;
+    border-bottom-right-radius: $borderRadius;
+    border: $borderSize solid #333;
+    padding: 7px 10px;
+    font-weight: 800;
+    
+    .span {
+      display: block;
+    }
+  }  
+}
+

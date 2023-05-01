@@ -9,9 +9,10 @@ export interface IRepo {
   name: string;
   default_branch: string;
   description: string | null;
-  git_url: string;
+  svn_url: string;
   language: string;
   visibility: 'public' | 'private';
+  stargazers_count: number;
   updated_at: string;
   pushed_at: string;
   owner: IRepoOwner;

@@ -9,10 +9,10 @@ import '@/styles/Burger.scss';
 import '@/styles/Header.scss';
 import '@/UI/Input/Input.scss';
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
-});
+// const poppins = Poppins({
+//   subsets: ['latin'],
+//   weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
+// });
 
 export default function App({ Component, pageProps, router }: AppProps) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -31,7 +31,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
   }, [router.events]);
 
   return (
-    <div className={poppins.className}>
+    <div>
       <Header />
       <AnimatePresence mode='wait' initial={true}>
         {isLoading ? (

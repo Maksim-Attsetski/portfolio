@@ -24,11 +24,13 @@ const List: FC<IProps> = ({
 }) => {
   const onRenderKey = useCallback(
     (el: any, inx: number) => (renderKey ? renderKey(el, inx) : inx),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 
   const emptyComponent = useMemo(
     () => <div className={emptyClassname}>{emptyElement}</div>,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 

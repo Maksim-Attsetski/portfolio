@@ -1,28 +1,15 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import type { AppProps } from 'next/app';
 import { Nunito } from 'next/font/google';
 
 import { Header, Loading } from '@/shared';
 import '@/styles/globals.scss';
+import '@/styles/Burger.scss';
+import '@/styles/Header.scss';
+import '@/UI/Input/Input.scss';
 
 const nunito = Nunito({ subsets: ['latin', 'cyrillic'] });
-
-// export default function App({ Component, pageProps, router }: AppProps) {
-//   return (
-//     <div className={nunito.className}>
-//       <Header />
-//       <Suspense fallback={<Loading />}>
-//         <AnimatePresence mode='wait' initial={false}>
-//           <Component {...pageProps} key={router.asPath} />
-//         </AnimatePresence>
-//       </Suspense>
-//     </div>
-//   );
-// }
-
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
 
 export default function App({ Component, pageProps, router }: AppProps) {
   const [isLoading, setIsLoading] = useState<boolean>(false);

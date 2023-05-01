@@ -2,8 +2,6 @@ import React from 'react';
 import { memo, useEffect, useState } from 'react';
 import { motion, useAnimation, transform } from 'framer-motion';
 
-import s from './Input.module.scss';
-
 const maxLength = 20;
 const halfLength = Math.round(maxLength / 2);
 const mapRemainingToColor = transform(
@@ -29,20 +27,19 @@ const Input = () => {
         damping: 80,
       },
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value.length]);
+  }, [value.length, charactersRemaining, controls]);
 
   return (
-    <div className={s.container}>
+    <div className={'input-container-1'}>
       <input
         maxLength={maxLength}
-        className={s.input}
+        className={'input'}
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-      <div className={s.number}>
+      <div className={'number'}>
         <motion.span
-          className={s.span}
+          className={'span'}
           animate={controls}
           style={{ color: mapRemainingToColor(charactersRemaining) }}
         >

@@ -4,7 +4,6 @@ import Link from 'next/link';
 
 import { routes } from '../types';
 import { Burger, Flex } from '@/UI';
-import s from '@/styles/Header.module.scss';
 import { useRouter } from 'next/router';
 
 const links = [
@@ -18,20 +17,20 @@ const Header: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <motion.div className={[s.headerWrapper, isOpen ? s.active : ''].join(' ')}>
-      <header className={s.header}>
-        <Flex className={s.header__body + ' container'}>
+    <motion.div className={['headerWrapper', isOpen ? 'active' : ''].join(' ')}>
+      <header className={'header'}>
+        <Flex className={'header__body' + ' container'}>
           <Flex>
-            <Link className={s.link} href={routes.home}>
+            <Link className={'link'} href={routes.home}>
               Maksim Attsetski
             </Link>
           </Flex>
-          <Flex className={s.links}>
+          <Flex className={'links'}>
             {links.map(({ text, to }) => (
               <Link
                 className={[
-                  s.link,
-                  router.pathname === to ? s.active : '',
+                  'link',
+                  router.pathname === to ? 'active' : '',
                 ].join(' ')}
                 href={to}
                 key={to}
@@ -45,7 +44,7 @@ const Header: FC = () => {
       </header>
       <Burger
         onClick={() => setIsOpen((prev) => !prev)}
-        className={s.headerWrapper__burger}
+        className={'headerWrapper__burger'}
         isOpen={isOpen}
       />
     </motion.div>

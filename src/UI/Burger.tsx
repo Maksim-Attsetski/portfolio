@@ -1,5 +1,4 @@
-import React, { FC, PropsWithChildren, memo } from 'react';
-import s from '@/styles/Burger.module.scss';
+import React, { FC, memo } from 'react';
 import { motion } from 'framer-motion';
 
 interface IProps {
@@ -7,11 +6,13 @@ interface IProps {
   onClick: () => void;
   isOpen?: boolean;
 }
-const lines = [s.firstLine, s.secondLine, s.thirdLine];
+const lines = ['firstLine', 'secondLine', 'thirdLine'];
 const Burger: FC<IProps> = ({ onClick, className = '', isOpen = false }) => {
   return (
     <motion.div
-      className={[className, s.burger, isOpen ? s.active : ''].join(' ')}
+      className={[className, 'burger-container', isOpen ? 'active' : ''].join(
+        ' '
+      )}
       onClick={onClick}
     >
       {lines.map((el) => (

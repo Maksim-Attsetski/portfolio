@@ -5,7 +5,7 @@ exports.id = 820;
 exports.ids = [820];
 exports.modules = {
 
-/***/ 1054:
+/***/ 3499:
 /***/ ((module, exports, __webpack_require__) => {
 
 
@@ -18,17 +18,16 @@ Object.defineProperty(exports, "default", ({
         return Error;
     }
 }));
-const _interop_require_default = __webpack_require__(6105);
+const _interop_require_default = __webpack_require__(167);
 const _react = /*#__PURE__*/ _interop_require_default._(__webpack_require__(6689));
-const _head = /*#__PURE__*/ _interop_require_default._(__webpack_require__(5319));
+const _head = /*#__PURE__*/ _interop_require_default._(__webpack_require__(2636));
 const statusCodes = {
     400: "Bad Request",
     404: "This page could not be found",
     405: "Method Not Allowed",
     500: "Internal Server Error"
 };
-function _getInitialProps(param) {
-    let { res , err  } = param;
+function _getInitialProps({ res , err  }) {
     const statusCode = res && res.statusCode ? res.statusCode : err ? err.statusCode : 404;
     return {
         statusCode
@@ -71,7 +70,7 @@ class Error extends _react.default.Component {
         const title = this.props.title || statusCodes[statusCode] || "An unexpected error has occurred";
         return /*#__PURE__*/ _react.default.createElement("div", {
             style: styles.error
-        }, /*#__PURE__*/ _react.default.createElement(_head.default, null, /*#__PURE__*/ _react.default.createElement("title", null, statusCode ? statusCode + ": " + title : "Application error: a client-side exception has occurred")), /*#__PURE__*/ _react.default.createElement("div", null, /*#__PURE__*/ _react.default.createElement("style", {
+        }, /*#__PURE__*/ _react.default.createElement(_head.default, null, /*#__PURE__*/ _react.default.createElement("title", null, statusCode ? `${statusCode}: ${title}` : "Application error: a client-side exception has occurred")), /*#__PURE__*/ _react.default.createElement("div", null, /*#__PURE__*/ _react.default.createElement("style", {
             dangerouslySetInnerHTML: {
                 /* CSS minified from
                 body { margin: 0; color: #000; background: #fff; }
@@ -89,7 +88,7 @@ class Error extends _react.default.Component {
                 }`
                     : ''
                 }
-               */ __html: "body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}" + (withDarkMode ? "@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}" : "")
+               */ __html: `body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}${withDarkMode ? "@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}" : ""}`
             }
         }), statusCode ? /*#__PURE__*/ _react.default.createElement("h1", {
             className: "next-error-h1",
@@ -161,6 +160,41 @@ module.exports = require("next/dist/shared/lib/utils/warn-once.js");
 
 module.exports = require("react");
 
+/***/ }),
+
+/***/ 2741:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+
+exports._ = exports._extends = _extends;
+function _extends() {
+    exports._ = exports._extends = _extends = Object.assign || function assign(target) {
+        for (var i = 1; i < arguments.length; i++) {
+            var source = arguments[i];
+            for (var key in source) if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
+        }
+
+        return target;
+    };
+
+    return _extends.apply(this, arguments);
+}
+
+
+/***/ }),
+
+/***/ 167:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+
+exports._ = exports._interop_require_default = _interop_require_default;
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
+
+
 /***/ })
 
 };
@@ -170,7 +204,7 @@ module.exports = require("react");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [253,319], () => (__webpack_exec__(1054)));
+var __webpack_exports__ = __webpack_require__.X(0, [636], () => (__webpack_exec__(3499)));
 module.exports = __webpack_exports__;
 
 })();

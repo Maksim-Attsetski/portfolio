@@ -5,9 +5,6 @@ import { Poppins } from 'next/font/google';
 
 import { Header, Loading } from '@/shared';
 import '@/styles/globals.scss';
-import '@/styles/Burger.scss';
-import '@/styles/Header.scss';
-import '@/UI/Input/Input.scss';
 
 // const poppins = Poppins({
 //   subsets: ['latin'],

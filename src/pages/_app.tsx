@@ -1,7 +1,7 @@
 import { Suspense, useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import type { AppProps } from 'next/app';
-import { Nunito } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 
 import { Header, Loading } from '@/shared';
 import '@/styles/globals.scss';
@@ -9,7 +9,10 @@ import '@/styles/Burger.scss';
 import '@/styles/Header.scss';
 import '@/UI/Input/Input.scss';
 
-const nunito = Nunito({ subsets: ['latin', 'cyrillic'] });
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
+});
 
 export default function App({ Component, pageProps, router }: AppProps) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -28,7 +31,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
   }, [router.events]);
 
   return (
-    <div className={nunito.className}>
+    <div className={poppins.className}>
       <Header />
       <AnimatePresence mode='wait' initial={true}>
         {isLoading ? (
